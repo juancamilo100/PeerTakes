@@ -12,9 +12,11 @@
 		6E31DA491D0E5449008AB4F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E31DA471D0E5449008AB4F6 /* Main.storyboard */; };
 		6E31DA4B1D0E5449008AB4F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E31DA4A1D0E5449008AB4F6 /* Assets.xcassets */; };
 		6E31DA4E1D0E5449008AB4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E31DA4C1D0E5449008AB4F6 /* LaunchScreen.storyboard */; };
+		E01E0194D47D98E60FC4FAF6 /* Pods_PeerTakes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1054D7D3F2093C7BA1412429 /* Pods_PeerTakes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1054D7D3F2093C7BA1412429 /* Pods_PeerTakes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeerTakes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E31DA401D0E5449008AB4F6 /* PeerTakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerTakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E31DA431D0E5449008AB4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E31DA451D0E5449008AB4F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		6E31DA4A1D0E5449008AB4F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E31DA4D1D0E5449008AB4F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E31DA4F1D0E5449008AB4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87D481E2A542E9F26182170B /* Pods-PeerTakes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerTakes.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeerTakes/Pods-PeerTakes.release.xcconfig"; sourceTree = "<group>"; };
+		A57206AFBBE86F42CBAC0E42 /* Pods-PeerTakes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeerTakes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeerTakes/Pods-PeerTakes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01E0194D47D98E60FC4FAF6 /* Pods_PeerTakes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		624C47A57567B84D2B7A58A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A57206AFBBE86F42CBAC0E42 /* Pods-PeerTakes.debug.xcconfig */,
+				87D481E2A542E9F26182170B /* Pods-PeerTakes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6E31DA371D0E5449008AB4F6 = {
 			isa = PBXGroup;
 			children = (
 				6E31DA421D0E5449008AB4F6 /* PeerTakes */,
 				6E31DA411D0E5449008AB4F6 /* Products */,
+				624C47A57567B84D2B7A58A9 /* Pods */,
+				76B533F297605D48F120C84C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = PeerTakes;
 			sourceTree = "<group>";
 		};
+		76B533F297605D48F120C84C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1054D7D3F2093C7BA1412429 /* Pods_PeerTakes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E31DA521D0E5449008AB4F6 /* Build configuration list for PBXNativeTarget "PeerTakes" */;
 			buildPhases = (
+				18AC835B7759C4F73A28C6DD /* [CP] Check Pods Manifest.lock */,
 				6E31DA3C1D0E5449008AB4F6 /* Sources */,
 				6E31DA3D1D0E5449008AB4F6 /* Frameworks */,
 				6E31DA3E1D0E5449008AB4F6 /* Resources */,
+				55B1236330843103CF880C83 /* [CP] Embed Pods Frameworks */,
+				044B25D09FC4205F4930D746 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		044B25D09FC4205F4930D746 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PeerTakes/Pods-PeerTakes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18AC835B7759C4F73A28C6DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		55B1236330843103CF880C83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PeerTakes/Pods-PeerTakes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6E31DA3C1D0E5449008AB4F6 /* Sources */ = {
@@ -248,22 +323,26 @@
 		};
 		6E31DA531D0E5449008AB4F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A57206AFBBE86F42CBAC0E42 /* Pods-PeerTakes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PeerTakes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peertakes.PeerTakes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lulosoft.peertakes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		6E31DA541D0E5449008AB4F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87D481E2A542E9F26182170B /* Pods-PeerTakes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PeerTakes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peertakes.PeerTakes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lulosoft.peertakes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -287,6 +366,7 @@
 				6E31DA541D0E5449008AB4F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,15 @@
+PODS:
+  - JSON (4.0.2)
+  - YouTubePlayer (0.3.0)
+
+DEPENDENCIES:
+  - JSON
+  - YouTubePlayer
+
+SPEC CHECKSUMS:
+  JSON: d08f22c3e523be050d5d5f40bca43ec02d95b2cc
+  YouTubePlayer: 88713a96c356f2c88da8925eb61438eda88bcd57
+
+PODFILE CHECKSUM: 865e4fdce82d51d79c57dcc17e666b91f669139f
+
+COCOAPODS: 1.0.1
