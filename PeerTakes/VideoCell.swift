@@ -15,5 +15,10 @@ import JSON
 class VideoCell: UICollectionViewCell {
     
     @IBOutlet var playerView: YouTubePlayerView!
+    @IBOutlet weak var videoDescriptionLabel: UILabel!
     
+    func configureLabels() {
+        self.videoDescriptionLabel.layer.cornerRadius = 5
+        self.videoDescriptionLabel.layer.masksToBounds = true;
+    }
 }

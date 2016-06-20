@@ -10,6 +10,20 @@ import UIKit
 import YouTubePlayer
 import JSON
 
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
+}
+
 class ViewController: UICollectionViewController {
     
     let googleApiKey = "AIzaSyDwM5YGbWpME6vHZ_RYf2QuxPoXZTS0P2s"
@@ -24,11 +38,12 @@ class ViewController: UICollectionViewController {
 
         let videoDataFetcher = VideoDataFetcher(viewControllerInstance: self)
         videoDataFetcher.getVideoData(googleApiRequestUrl)
+        
+        self.collectionView?.backgroundColor = UIColor(netHex:0xFA3900)
     }
     
-    func loadVideo() {
+    func loadVideos() {
         self.collectionView?.reloadData()
-        print("loaded video")
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,11 +57,35 @@ class ViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("videoCell", forIndexPath: indexPath) as! VideoCell
         
-        if(videoLibrary.count > 0) {
+        if videoLibrary.count > 0 {
             cell.playerView.loadVideoID(videoLibrary[indexPath.row].videoId)
+            cell.playerView.layer.cornerRadius = 5
+            cell.playerView.layer.masksToBounds = true;
+            if videoLibrary[indexPath.row].videoDescription.isEmpty {
+                cell.videoDescriptionLabel.text = "No description available"
+            } else {
+            cell.videoDescriptionLabel.text = "Description: \n\n\(videoLibrary[indexPath.row].videoDescription)"
+            }
+            cell.configureLabels()
         }
         
         return cell
+    }
+    
+    //For the header
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind {
+            
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "videoCollectionHeader",
+                forIndexPath: indexPath) as! VideoCollectionHeaderView
+            
+            headerView.headerLabel.text = "Favorite Videos"
+            return headerView
+            
+        default:
+            assert(false, "Unexpected element kind")
+        }
     }
 
     override func didReceiveMemoryWarning() {
