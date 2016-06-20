@@ -39,7 +39,7 @@ class ViewController: UICollectionViewController {
         let videoDataFetcher = VideoDataFetcher(viewControllerInstance: self)
         videoDataFetcher.getVideoData(googleApiRequestUrl)
         
-        self.collectionView?.backgroundColor = UIColor(netHex:0xFA3900)
+        self.collectionView?.backgroundColor = UIColor(netHex:0xFF5722)
     }
     
     func loadVideos() {
@@ -80,7 +80,7 @@ class ViewController: UICollectionViewController {
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "videoCollectionHeader",
                 forIndexPath: indexPath) as! VideoCollectionHeaderView
             
-            headerView.headerLabel.text = "Favorite Videos"
+            headerView.headerLabel.text = "Latest Videos"
             return headerView
             
         default:
