@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PeerTakes/ViewController.swift"
-            timestampString = "488079653.735798"
+            timestampString = "488128383.659812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -40,29 +40,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PeerTakes/ViewController.swift"
-            timestampString = "488085992.945225"
+            timestampString = "488126535.508407"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PeerTakes/ViewController.swift"
-            timestampString = "488085988.645856"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeerTakes.ViewController.__deallocating_deinit"
+                  moduleName = "PeerTakes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanespinosa/Google%20Drive/UofL/MobileDevelopment/Apps/PeerTakes/PeerTakes/ViewController.swift"
+                  timestampString = "488126535.515247"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeerTakes.ViewController.init (PeerTakes.ViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; PeerTakes.ViewController"
+                  moduleName = "PeerTakes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanespinosa/Google%20Drive/UofL/MobileDevelopment/Apps/PeerTakes/PeerTakes/ViewController.swift"
+                  timestampString = "488126535.515427"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "81">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PeerTakes.ViewController.init (PeerTakes.ViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;PeerTakes.ViewController&gt;"
+                  moduleName = "PeerTakes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juanespinosa/Google%20Drive/UofL/MobileDevelopment/Apps/PeerTakes/PeerTakes/ViewController.swift"
+                  timestampString = "488126535.515548"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
