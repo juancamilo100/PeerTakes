@@ -10,7 +10,7 @@ import UIKit
 import YouTubePlayer
 import JSON
 
-class ViewController: UIViewController {
+class ViewController: UICollectionViewController {
     
     let googleApiKey = "AIzaSyDwM5YGbWpME6vHZ_RYf2QuxPoXZTS0P2s"
     var videoLibrary = [Video]()
@@ -27,7 +27,26 @@ class ViewController: UIViewController {
     }
     
     func loadVideo() {
-        playerView.loadVideoID(videoLibrary[0].videoId)
+        self.collectionView?.reloadData()
+        print("loaded video")
+    }
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return videoLibrary.count
+    }
+    
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("videoCell", forIndexPath: indexPath) as! VideoCell
+        
+        if(videoLibrary.count > 0) {
+            cell.playerView.loadVideoID(videoLibrary[indexPath.row].videoId)
+        }
+        
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
