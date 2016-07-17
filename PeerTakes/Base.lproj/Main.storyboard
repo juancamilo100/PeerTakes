@@ -1,42 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1808" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1808" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qow-Da-51i">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="nRy-07-3oj">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PeerTakes" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lkW-u0-cjd"/>
-                        <viewControllerLayoutGuide type="bottom" id="akd-9l-oYu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <collectionViewController id="qow-Da-51i" customClass="ViewController" customModule="PeerTakes" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="HyL-9u-530">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdU-RZ-gZE" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="208"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tdU-RZ-gZE" secondAttribute="trailing" id="2Ps-mB-Arv"/>
-                            <constraint firstItem="tdU-RZ-gZE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WUs-eb-reK"/>
-                            <constraint firstItem="tdU-RZ-gZE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aZ8-hO-xIb"/>
-                            <constraint firstItem="akd-9l-oYu" firstAttribute="top" secondItem="tdU-RZ-gZE" secondAttribute="bottom" constant="360" id="ci6-j3-Fiy"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="playerView" destination="tdU-RZ-gZE" id="ZQi-X9-W5G"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VLo-76-VuY">
+                            <size key="itemSize" width="320" height="297"/>
+                            <size key="headerReferenceSize" width="50" height="87"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="0ee-aO-WhQ" customClass="VideoCell" customModule="PeerTakes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="87" width="320" height="297"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="297"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMI-2N-edy" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fI9-BQ-9oG">
+                                            <rect key="frame" x="0.0" y="184" width="320" height="105"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="105" id="COA-7X-sHk"/>
+                                            </constraints>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Video Description">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <font key="NSFont" size="18" name="Palatino-Roman"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="10"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="fI9-BQ-9oG" firstAttribute="trailing" secondItem="HMI-2N-edy" secondAttribute="trailing" id="CFk-JM-H7b"/>
+                                    <constraint firstItem="fI9-BQ-9oG" firstAttribute="leading" secondItem="0ee-aO-WhQ" secondAttribute="leading" id="MdW-78-fJ4"/>
+                                    <constraint firstItem="fI9-BQ-9oG" firstAttribute="bottom" secondItem="0ee-aO-WhQ" secondAttribute="bottomMargin" id="NFn-vl-ISx"/>
+                                    <constraint firstItem="HMI-2N-edy" firstAttribute="top" secondItem="0ee-aO-WhQ" secondAttribute="top" id="Wrh-x1-6Gg"/>
+                                    <constraint firstAttribute="trailing" secondItem="HMI-2N-edy" secondAttribute="trailing" id="X8o-mZ-So3"/>
+                                    <constraint firstItem="fI9-BQ-9oG" firstAttribute="leading" secondItem="HMI-2N-edy" secondAttribute="leading" id="niF-T6-cNI"/>
+                                    <constraint firstItem="fI9-BQ-9oG" firstAttribute="top" secondItem="HMI-2N-edy" secondAttribute="bottom" constant="8" symbolic="YES" id="wm2-jv-qqN"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="playerView" destination="HMI-2N-edy" id="xhw-vj-rMJ"/>
+                                    <outlet property="videoDescriptionLabel" destination="fI9-BQ-9oG" id="PAc-UV-K6b"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCollectionHeader" id="UGh-Vq-DIx" customClass="VideoCollectionHeaderView" customModule="PeerTakes" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorite Videos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-AK-xfp">
+                                    <rect key="frame" x="21" y="44" width="209" height="28"/>
+                                    <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="22"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <connections>
+                                <outlet property="headerLabel" destination="Vc1-AK-xfp" id="Dyi-SF-1SB"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="qow-Da-51i" id="AY7-hD-ij0"/>
+                            <outlet property="delegate" destination="qow-Da-51i" id="Z2Y-Im-RlK"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Yp-gJ-JvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="234" y="336"/>
+            <point key="canvasLocation" x="360" y="336"/>
         </scene>
     </scenes>
 </document>
