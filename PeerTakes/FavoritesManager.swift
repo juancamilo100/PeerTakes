@@ -12,16 +12,20 @@ class FavoritesManager {
     var favoriteVideos = [String]()
     let favoriteVideosUserDefaultKey = "favoriteVideos"
     
-    func saveFavorite(videoId: String) {
-        favoriteVideos.append(videoId)
-        
+    func saveFavorites() {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(favoriteVideos, forKey: favoriteVideosUserDefaultKey)
+    }
+    
+    func addFavorite(videoId: String) {
+        favoriteVideos.append(videoId)
+        saveFavorites()
     }
     
     func removeFavorite(videoId: String) {
         if let index = favoriteVideos.indexOf(videoId) {
             favoriteVideos.removeAtIndex(index)
+            saveFavorites()
         }
         else {
             print("Couldn't find favorite")
@@ -37,5 +41,9 @@ class FavoritesManager {
         if let favoriteVideosBuffer = defaults.stringArrayForKey(favoriteVideosUserDefaultKey) {
                 favoriteVideos += favoriteVideosBuffer
         }
+    }
+    
+    func getNumberOfFavorites() -> Int {
+        return favoriteVideos.count
     }
 }

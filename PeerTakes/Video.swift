@@ -12,5 +12,4 @@ class Video {
     var videoId: String = ""
     var videoDescription: String = ""
     var videoTitle: String = ""
-    var isFavorite: Bool = false
 }

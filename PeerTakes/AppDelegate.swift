@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let mainViewControllerIndex = 0
+    let favoritesViewControllerIndex = 1
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let favoritesManager = FavoritesManager()
+        favoritesManager.retrieveFavorites()
+        
+        let tabBarController = window!.rootViewController as! UITabBarController
+        let viewController = tabBarController.viewControllers![mainViewControllerIndex] as! ViewController
+        let favoritesViewController = tabBarController.viewControllers![favoritesViewControllerIndex] as! FavoritesViewController
+        
+        viewController.favoritesManager = favoritesManager
+        favoritesViewController.favoritesManager = favoritesManager
+        
         return true
     }
 

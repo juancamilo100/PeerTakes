@@ -31,10 +31,10 @@ class ViewController: UICollectionViewController {
     let googleApiKey = "AIzaSyDwM5YGbWpME6vHZ_RYf2QuxPoXZTS0P2s"
     var videoLibrary = [Video]()
     var favoriteVideos = [Video]()
+    var favoritesManager: FavoritesManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        favoriteButton.setImage(UIImage(named: "favorite.png"), forState: UIControlState.Normal)
         
         let googleApiRequestUrl = "https://www.googleapis.com/youtube/v3/search?key=\(self.googleApiKey)" + "&channelId=UCKsvjO03BYgOaKcHNVsWz8Q&part=snippet,id&order=date&maxResults=20"
 
@@ -58,7 +58,16 @@ class ViewController: UICollectionViewController {
     
     func favoriteButtonAction(sender:UIButton) {
         let buttonIndex: Int = (sender.layer.valueForKey("index")) as! Int
-        videoLibrary[buttonIndex].isFavorite = !videoLibrary[buttonIndex].isFavorite
+        let videoId = videoLibrary[buttonIndex].videoId
+        
+        if favoritesManager.isFavorite(videoId) {
+            favoritesManager.removeFavorite(videoId)
+            print("Removed favorite")
+        }
+        else {
+            favoritesManager.addFavorite(videoId)
+            print("Saved favorite")
+        }
         loadVideos()
     }
     
@@ -74,7 +83,7 @@ class ViewController: UICollectionViewController {
             cell.favoriteButton?.layer.cornerRadius = 10
             cell.favoriteButton?.addTarget(self, action: "favoriteButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
             
-            if videoLibrary[indexPath.row].isFavorite {
+            if favoritesManager.isFavorite(videoLibrary[indexPath.row].videoId) {
                 cell.favoriteButton?.setImage(UIImage(named: "favorite.png"), forState: UIControlState.Normal)
             }
             else {
