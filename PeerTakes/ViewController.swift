@@ -19,6 +19,7 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
+
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
@@ -26,13 +27,14 @@ extension UIColor {
 
 class ViewController: UICollectionViewController {
     
+
     let googleApiKey = "AIzaSyDwM5YGbWpME6vHZ_RYf2QuxPoXZTS0P2s"
     var videoLibrary = [Video]()
-    
-    @IBOutlet var playerView: YouTubePlayerView!
+    var favoriteVideos = [Video]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        favoriteButton.setImage(UIImage(named: "favorite.png"), forState: UIControlState.Normal)
         
         let googleApiRequestUrl = "https://www.googleapis.com/youtube/v3/search?key=\(self.googleApiKey)" + "&channelId=UCKsvjO03BYgOaKcHNVsWz8Q&part=snippet,id&order=date&maxResults=20"
 
@@ -54,6 +56,12 @@ class ViewController: UICollectionViewController {
         return 1
     }
     
+    func favoriteButtonAction(sender:UIButton) {
+        let buttonIndex: Int = (sender.layer.valueForKey("index")) as! Int
+        videoLibrary[buttonIndex].isFavorite = !videoLibrary[buttonIndex].isFavorite
+        loadVideos()
+    }
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("videoCell", forIndexPath: indexPath) as! VideoCell
         
@@ -61,11 +69,26 @@ class ViewController: UICollectionViewController {
             cell.playerView.loadVideoID(videoLibrary[indexPath.row].videoId)
             cell.playerView.layer.cornerRadius = 5
             cell.playerView.layer.masksToBounds = true;
+            
+            cell.favoriteButton?.layer.setValue(indexPath.row, forKey: "index")
+            cell.favoriteButton?.layer.cornerRadius = 10
+            cell.favoriteButton?.addTarget(self, action: "favoriteButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            if videoLibrary[indexPath.row].isFavorite {
+                cell.favoriteButton?.setImage(UIImage(named: "favorite.png"), forState: UIControlState.Normal)
+            }
+            else {
+                cell.favoriteButton?.setImage(UIImage(named: "unfavorite.png"), forState: UIControlState.Normal)
+            }
+            
             if videoLibrary[indexPath.row].videoDescription.isEmpty {
                 cell.videoDescriptionLabel.text = "No description available"
-            } else {
+            }
+            
+            else {
             cell.videoDescriptionLabel.text = "Description: \n\n\(videoLibrary[indexPath.row].videoDescription)"
             }
+            
             cell.configureLabels()
         }
         

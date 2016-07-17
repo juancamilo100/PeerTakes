@@ -14,6 +14,8 @@ import JSON
 
 class VideoCell: UICollectionViewCell {
     
+    @IBOutlet var favoriteButton: UIButton!
+    
     @IBOutlet var playerView: YouTubePlayerView!
     @IBOutlet weak var videoDescriptionLabel: UILabel!
     
