@@ -46,7 +46,7 @@ class VideoDataFetcher {
                 
                 self.viewControllerInstance.loadVideos()
             } catch {
-                // Handle error
+                print("Error parsing the JSON file!")
             }
         }.resume()
     }
