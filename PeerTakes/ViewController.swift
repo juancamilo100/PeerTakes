@@ -37,7 +37,7 @@ class ViewController: UICollectionViewController {
         let videoDataFetcher = VideoDataFetcher(viewControllerInstance: self)
         videoDataFetcher.getVideoData()
         
-        self.collectionView?.backgroundColor = UIColor(netHex:0xFF5722)
+        self.collectionView?.backgroundColor = UIColor(netHex:0xFFB74D)
     }
     
     func loadVideos() {
@@ -58,11 +58,9 @@ class ViewController: UICollectionViewController {
         
         if favoritesManager.isFavorite(videoId) {
             favoritesManager.removeFavorite(videoId)
-            print("Removed favorite")
         }
         else {
             favoritesManager.addFavorite(videoId)
-            print("Saved favorite")
         }
         loadVideos()
     }

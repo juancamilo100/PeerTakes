@@ -43,10 +43,6 @@ class FavoritesManager {
         }
     }
     
-    func getNumberOfFavorites() -> Int {
-        return favoriteVideos.count
-    }
-    
     func getFavoriteVideos(videoLibrary: [Video]) -> [Video] {
         var favoriteVideos = [Video]()
         
