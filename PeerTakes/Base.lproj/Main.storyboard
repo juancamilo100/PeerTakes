@@ -31,6 +31,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a36-rs-5ED">
+                                            <rect key="frame" x="254" y="116" width="44" height="44"/>
+                                            <color key="backgroundColor" white="1" alpha="0.63" colorSpace="calibratedWhite"/>
+                                            <state key="normal" image="favorite"/>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fI9-BQ-9oG">
                                             <rect key="frame" x="0.0" y="179" width="320" height="110"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,11 +53,6 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a36-rs-5ED">
-                                            <rect key="frame" x="254" y="116" width="44" height="44"/>
-                                            <color key="backgroundColor" white="1" alpha="0.63" colorSpace="calibratedWhite"/>
-                                            <state key="normal" image="favorite"/>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -113,49 +113,72 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dls-kn-mzs">
                                 <rect key="frame" x="0.0" y="193" width="320" height="326"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cTb-Lu-Le6">
-                                    <size key="itemSize" width="320" height="260"/>
+                                    <size key="itemSize" width="320" height="297"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteVideoCell" id="KdW-Hf-NFq" customClass="VideoCell" customModule="PeerTakes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteVideoCell" id="KdW-Hf-NFq" customClass="FavoriteVideoCell" customModule="PeerTakes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="297"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="297"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-PY-Xdy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnF-6a-gKu">
+                                                    <rect key="frame" x="0.0" y="179" width="320" height="110"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="110" id="Kbu-Yt-31s"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-PY-Xdy" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="xnF-6a-gKu" firstAttribute="leading" secondItem="SfN-PY-Xdy" secondAttribute="leading" id="5La-oC-hC2"/>
+                                            <constraint firstItem="xnF-6a-gKu" firstAttribute="top" secondItem="SfN-PY-Xdy" secondAttribute="bottom" constant="3" id="5bM-AZ-NfU"/>
+                                            <constraint firstItem="SfN-PY-Xdy" firstAttribute="leading" secondItem="KdW-Hf-NFq" secondAttribute="leading" id="Kqr-ol-2hu"/>
+                                            <constraint firstItem="SfN-PY-Xdy" firstAttribute="top" secondItem="KdW-Hf-NFq" secondAttribute="top" id="ZRq-Yy-oIw"/>
+                                            <constraint firstItem="SfN-PY-Xdy" firstAttribute="trailing" secondItem="xnF-6a-gKu" secondAttribute="trailing" id="hfN-NU-uxv"/>
+                                            <constraint firstItem="xnF-6a-gKu" firstAttribute="bottom" secondItem="KdW-Hf-NFq" secondAttribute="bottomMargin" id="ns7-NI-yGj"/>
+                                            <constraint firstAttribute="trailing" secondItem="xnF-6a-gKu" secondAttribute="trailing" id="q6w-rT-QhN"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="playerView" destination="SfN-PY-Xdy" id="fEp-q3-rQj"/>
+                                            <outlet property="videoDescriptionLabel" destination="xnF-6a-gKu" id="WW8-pR-kHw"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-OZ-MvZ">
                                 <rect key="frame" x="86" y="28" width="141" height="141"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="141" id="Usm-8x-hDS"/>
-                                    <constraint firstAttribute="width" constant="141" id="Va1-HM-l03"/>
+                                    <constraint firstAttribute="height" constant="141" id="aqf-tC-Lng"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Dls-kn-mzs" firstAttribute="bottom" secondItem="rlD-rx-RoN" secondAttribute="top" id="Mx0-7q-wp2"/>
-                            <constraint firstItem="Dls-kn-mzs" firstAttribute="leading" secondItem="5nK-4b-8tf" secondAttribute="leading" id="YD8-WZ-Oib"/>
-                            <constraint firstItem="ecU-OZ-MvZ" firstAttribute="leading" secondItem="5nK-4b-8tf" secondAttribute="leadingMargin" constant="70" id="YNw-Zj-MMy"/>
-                            <constraint firstAttribute="trailing" secondItem="Dls-kn-mzs" secondAttribute="trailing" id="nFJ-Wz-3iV"/>
-                            <constraint firstItem="ecU-OZ-MvZ" firstAttribute="top" secondItem="xlh-xf-5C8" secondAttribute="bottom" constant="8" id="nWQ-cs-ZsH"/>
-                            <constraint firstItem="Dls-kn-mzs" firstAttribute="top" secondItem="ecU-OZ-MvZ" secondAttribute="bottom" constant="24" id="p6y-DU-0V7"/>
+                            <constraint firstItem="ecU-OZ-MvZ" firstAttribute="top" secondItem="xlh-xf-5C8" secondAttribute="bottom" constant="8" symbolic="YES" id="AIN-77-3Wc"/>
+                            <constraint firstItem="Dls-kn-mzs" firstAttribute="bottom" secondItem="rlD-rx-RoN" secondAttribute="top" id="HAJ-QP-RLp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ecU-OZ-MvZ" secondAttribute="trailing" constant="77" id="Jss-lc-er4"/>
+                            <constraint firstAttribute="trailing" secondItem="Dls-kn-mzs" secondAttribute="trailing" id="Ktb-Sd-UaA"/>
+                            <constraint firstItem="Dls-kn-mzs" firstAttribute="top" secondItem="ecU-OZ-MvZ" secondAttribute="bottom" constant="24" id="a4M-MG-b1z"/>
+                            <constraint firstItem="Dls-kn-mzs" firstAttribute="leading" secondItem="5nK-4b-8tf" secondAttribute="leading" id="o9Z-XV-o8O"/>
+                            <constraint firstItem="ecU-OZ-MvZ" firstAttribute="leading" secondItem="5nK-4b-8tf" secondAttribute="leadingMargin" constant="70" id="vu1-P1-edn"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="rrk-E9-Dr4"/>
                     <connections>
+                        <outlet property="collectionView" destination="Dls-kn-mzs" id="LKg-eN-Jtd"/>
                         <outlet property="profileImage" destination="ecU-OZ-MvZ" id="FUt-C3-BFb"/>
                     </connections>
                 </viewController>
