@@ -10,16 +10,19 @@ import Foundation
 
 class VideoDataFetcher {
     
+    let googleApiKey = "AIzaSyDwM5YGbWpME6vHZ_RYf2QuxPoXZTS0P2s"
+    var googleApiRequestUrl: String!
     var jsonObject =  [String : AnyObject]()
     var viewControllerInstance: ViewController
     
     init(viewControllerInstance: ViewController) {
         
         self.viewControllerInstance = viewControllerInstance
+        googleApiRequestUrl = "https://www.googleapis.com/youtube/v3/search?key=\(self.googleApiKey)" + "&channelId=UCKsvjO03BYgOaKcHNVsWz8Q&part=snippet,id&order=date&maxResults=20"
     }
     
-    func getVideoData (url: String) {
-        let requestUrl = NSURL(string: url)
+    func getVideoData () {
+        let requestUrl = NSURL(string: googleApiRequestUrl)
         let request = NSURLRequest.init(URL: requestUrl!)
         
         NSURLSession.sharedSession().dataTaskWithRequest(request) { data, _, error in

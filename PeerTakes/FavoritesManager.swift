@@ -39,11 +39,23 @@ class FavoritesManager {
     func retrieveFavorites() {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let favoriteVideosBuffer = defaults.stringArrayForKey(favoriteVideosUserDefaultKey) {
-                favoriteVideos += favoriteVideosBuffer
+                favoriteVideos = favoriteVideosBuffer
         }
     }
     
     func getNumberOfFavorites() -> Int {
         return favoriteVideos.count
+    }
+    
+    func getFavoriteVideos(videoLibrary: [Video]) -> [Video] {
+        var favoriteVideos = [Video]()
+        
+        for video in videoLibrary {
+            if isFavorite(video.videoId) {
+                favoriteVideos.append(video)
+            }
+        }
+        
+        return favoriteVideos
     }
 }

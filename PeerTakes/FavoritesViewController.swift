@@ -14,10 +14,14 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var profileImage: UIImageView!
     var videoLibrary = [Video]()
+    var favoriteVideos = [Video]()
+    var favoritesManager: FavoritesManager!
     
     override func viewWillAppear(animated: Bool) {
+//        favoriteVideos = favoritesManager.getFavoriteVideos(videoLibrary)
+//        favoritesManager.retrieveFavorites()
+        updateFavoriteVideos()
         self.collectionView?.reloadData()
-        print("View appeared")
     }
     
     override func viewDidLoad() {
@@ -26,39 +30,40 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.dataSource = self
         self.collectionView?.backgroundColor = UIColor(netHex:0xFF5722)
         
-        let viewController = self.tabBarController!.viewControllers![0] as! ViewController
-        videoLibrary = viewController.videoLibrary
+        updateFavoriteVideos()
     }
     
-    var favoritesManager: FavoritesManager!
+    func updateFavoriteVideos() {
+        let viewController = self.tabBarController!.viewControllers![0] as! ViewController
+        videoLibrary = viewController.videoLibrary
+        favoriteVideos = favoritesManager.getFavoriteVideos(videoLibrary)
+    }
     
     // MARK: - UICollectionViewDataSource protocol
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Number of favorites: \(favoritesManager.getNumberOfFavorites())")
-        return favoritesManager.getNumberOfFavorites()
+        return favoriteVideos.count
     }
     
     // make a cell for each cell index path
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("favoriteVideoCell", forIndexPath: indexPath) as! FavoriteVideoCell
-        
-        if videoLibrary.count > 0 && favoritesManager.isFavorite(videoLibrary[indexPath.row].videoId) {
-            cell.playerView.loadVideoID(videoLibrary[indexPath.row].videoId)
+
+            cell.playerView.loadVideoID(favoriteVideos[indexPath.item].videoId)
             cell.playerView.layer.cornerRadius = 5
             cell.playerView.layer.masksToBounds = true;
 
-            if videoLibrary[indexPath.row].videoDescription.isEmpty {
+            if favoriteVideos[indexPath.item].videoDescription.isEmpty {
                 cell.videoDescriptionLabel.text = "No description available"
             }
                 
             else {
-                cell.videoDescriptionLabel.text = "Description: \n\n\(videoLibrary[indexPath.row].videoDescription)"
+                cell.videoDescriptionLabel.text = "Description: \n\n\(favoriteVideos[indexPath.item].videoDescription)"
             }
             
             cell.configureLabels()
-        }
+        
         
         return cell
 

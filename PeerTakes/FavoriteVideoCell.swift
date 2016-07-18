@@ -21,4 +21,9 @@ class FavoriteVideoCell: UICollectionViewCell {
         self.videoDescriptionLabel.layer.cornerRadius = 5
         self.videoDescriptionLabel.layer.masksToBounds = true;
     }
+    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        print("Reuse!!")
+//    }
 }

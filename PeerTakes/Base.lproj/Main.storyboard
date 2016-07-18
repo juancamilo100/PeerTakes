@@ -126,7 +126,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="297"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnF-6a-gKu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnF-6a-gKu">
                                                     <rect key="frame" x="0.0" y="179" width="320" height="110"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="110" id="Kbu-Yt-31s"/>
@@ -136,7 +136,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-PY-Xdy" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
+                                                    <rect key="frame" x="0.0" y="8" width="320" height="176"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -144,9 +144,9 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="xnF-6a-gKu" firstAttribute="leading" secondItem="SfN-PY-Xdy" secondAttribute="leading" id="5La-oC-hC2"/>
-                                            <constraint firstItem="xnF-6a-gKu" firstAttribute="top" secondItem="SfN-PY-Xdy" secondAttribute="bottom" constant="3" id="5bM-AZ-NfU"/>
+                                            <constraint firstItem="xnF-6a-gKu" firstAttribute="top" secondItem="SfN-PY-Xdy" secondAttribute="bottom" constant="-5" id="5bM-AZ-NfU"/>
                                             <constraint firstItem="SfN-PY-Xdy" firstAttribute="leading" secondItem="KdW-Hf-NFq" secondAttribute="leading" id="Kqr-ol-2hu"/>
-                                            <constraint firstItem="SfN-PY-Xdy" firstAttribute="top" secondItem="KdW-Hf-NFq" secondAttribute="top" id="ZRq-Yy-oIw"/>
+                                            <constraint firstItem="SfN-PY-Xdy" firstAttribute="top" secondItem="KdW-Hf-NFq" secondAttribute="top" constant="8" id="ZRq-Yy-oIw"/>
                                             <constraint firstItem="SfN-PY-Xdy" firstAttribute="trailing" secondItem="xnF-6a-gKu" secondAttribute="trailing" id="hfN-NU-uxv"/>
                                             <constraint firstItem="xnF-6a-gKu" firstAttribute="bottom" secondItem="KdW-Hf-NFq" secondAttribute="bottomMargin" id="ns7-NI-yGj"/>
                                             <constraint firstAttribute="trailing" secondItem="xnF-6a-gKu" secondAttribute="trailing" id="q6w-rT-QhN"/>

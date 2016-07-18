@@ -27,19 +27,15 @@ extension UIColor {
 
 class ViewController: UICollectionViewController {
     
-
-    let googleApiKey = "AIzaSyDwM5YGbWpME6vHZ_RYf2QuxPoXZTS0P2s"
     var videoLibrary = [Video]()
     var favoriteVideos = [Video]()
     var favoritesManager: FavoritesManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let googleApiRequestUrl = "https://www.googleapis.com/youtube/v3/search?key=\(self.googleApiKey)" + "&channelId=UCKsvjO03BYgOaKcHNVsWz8Q&part=snippet,id&order=date&maxResults=20"
 
         let videoDataFetcher = VideoDataFetcher(viewControllerInstance: self)
-        videoDataFetcher.getVideoData(googleApiRequestUrl)
+        videoDataFetcher.getVideoData()
         
         self.collectionView?.backgroundColor = UIColor(netHex:0xFF5722)
     }
