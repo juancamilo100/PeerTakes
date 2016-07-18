@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -159,10 +160,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-OZ-MvZ">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-OZ-MvZ">
                                 <rect key="frame" x="86" y="28" width="141" height="141"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="ecU-OZ-MvZ" secondAttribute="height" multiplier="1:1" id="SbB-c2-S91"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="141" id="aK2-Ip-QrH"/>
                                     <constraint firstAttribute="height" constant="141" id="aqf-tC-Lng"/>
+                                    <constraint firstAttribute="width" constant="141" id="atP-Uw-sP2"/>
                                 </constraints>
                             </imageView>
                         </subviews>

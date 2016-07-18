@@ -70,7 +70,7 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func formatProfilePicture() {
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 1.48
         self.profileImage.clipsToBounds = true;
         self.profileImage.layer.borderWidth = 3
         self.profileImage.layer.borderColor = UIColor.whiteColor().CGColor;
@@ -82,8 +82,6 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func profileImageTapped(img: AnyObject)
     {
-        print("Image tapped")
-        
         let imagePicker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.Camera){
             imagePicker.sourceType = .Camera
